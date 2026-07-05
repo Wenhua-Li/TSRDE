@@ -1,0 +1,62 @@
+{
+  "source": "RobBench",
+  "name": "RB-A1",
+  "dim": 2,
+  "n_minima": 4,
+  "sigma": 0.10606601717798213,
+  "n_samples": 32,
+  "peaks": [
+    {
+      "peak_idx": 0,
+      "sigma_peak": [
+        0.1,
+        0.1
+      ],
+      "gt_robust": 0.1,
+      "is_robust": false,
+      "f_center": -10.0,
+      "rob_mean": -7.059984617253566,
+      "rob_var": 2.3727792499373477,
+      "rob_max": -4.730532916022398
+    },
+    {
+      "peak_idx": 1,
+      "sigma_peak": [
+        0.3,
+        0.3
+      ],
+      "gt_robust": 0.3,
+      "is_robust": false,
+      "f_center": -10.0,
+      "rob_mean": -9.576746158457436,
+      "rob_var": 0.05173602458867163,
+      "rob_max": -9.055452342135904
+    },
+    {
+      "peak_idx": 2,
+      "sigma_peak": [
+        0.15,
+        0.5
+      ],
+      "gt_robust": 0.325,
+      "is_robust": true,
+      "f_center": -10.0,
+      "rob_mean": -9.159656446481026,
+      "rob_var": 0.5219109299129201,
+      "rob_max": -7.754683013987203
+    },
+    {
+      "peak_idx": 3,
+      "sigma_peak": [
+        1.0,
+        1.0
+      ],
+      "gt_robust": 1.0,
+      "is_robust": true,
+      "f_center": -10.0,
+      "rob_mean": -9.959381817817288,
+      "rob_var": 0.0004601356035640997,
+      "rob_max": -9.894946161455326
+    }
+  ]
+}

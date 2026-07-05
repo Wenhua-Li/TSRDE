@@ -1,0 +1,42 @@
+{
+  "source": "RobBench",
+  "name": "RB-C1",
+  "dim": 5,
+  "n_minima": 2,
+  "sigma": 0.14111375238345714,
+  "n_samples": 50,
+  "peaks": [
+    {
+      "peak_idx": 0,
+      "sigma_peak": [
+        0.15,
+        0.15,
+        0.15,
+        0.15,
+        0.15
+      ],
+      "gt_robust": 0.15,
+      "is_robust": false,
+      "f_center": -10.0,
+      "rob_mean": -4.6191671687158165,
+      "rob_var": 1.5824215425139305,
+      "rob_max": -2.0912016506192788
+    },
+    {
+      "peak_idx": 1,
+      "sigma_peak": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "gt_robust": 1.0,
+      "is_robust": true,
+      "f_center": -10.0,
+      "rob_mean": -9.833407342272363,
+      "rob_var": 0.0039214528126443075,
+      "rob_max": -9.725483994367382
+    }
+  ]
+}

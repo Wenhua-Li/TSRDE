@@ -1,0 +1,106 @@
+{
+  "source": "RobBench",
+  "name": "RB-E3",
+  "dim": 5,
+  "n_minima": 6,
+  "sigma": 0.09734030774916339,
+  "n_samples": 50,
+  "peaks": [
+    {
+      "peak_idx": 0,
+      "sigma_peak": [
+        0.12,
+        0.12,
+        0.12,
+        0.12,
+        0.12
+      ],
+      "gt_robust": 0.12,
+      "is_robust": false,
+      "f_center": -10.0,
+      "rob_mean": -5.746449547948896,
+      "rob_var": 1.062615226575908,
+      "rob_max": -3.2041418145036955
+    },
+    {
+      "peak_idx": 1,
+      "sigma_peak": [
+        0.12,
+        0.12,
+        0.12,
+        0.12,
+        0.12
+      ],
+      "gt_robust": 0.12,
+      "is_robust": false,
+      "f_center": -10.0,
+      "rob_mean": -5.76744847986961,
+      "rob_var": 1.9256268812910358,
+      "rob_max": -3.427834402093774
+    },
+    {
+      "peak_idx": 2,
+      "sigma_peak": [
+        0.12,
+        0.12,
+        0.12,
+        0.12,
+        0.12
+      ],
+      "gt_robust": 0.12,
+      "is_robust": false,
+      "f_center": -10.0,
+      "rob_mean": -5.943697855778352,
+      "rob_var": 1.3578925516583151,
+      "rob_max": -3.9345882050249297
+    },
+    {
+      "peak_idx": 3,
+      "sigma_peak": [
+        0.12,
+        0.12,
+        0.12,
+        0.12,
+        0.12
+      ],
+      "gt_robust": 0.12,
+      "is_robust": false,
+      "f_center": -10.0,
+      "rob_mean": -6.171028950414004,
+      "rob_var": 1.225761133523785,
+      "rob_max": -4.151394900044383
+    },
+    {
+      "peak_idx": 4,
+      "sigma_peak": [
+        0.12,
+        0.12,
+        0.12,
+        0.12,
+        0.12
+      ],
+      "gt_robust": 0.12,
+      "is_robust": false,
+      "f_center": -10.0,
+      "rob_mean": -6.065950290304837,
+      "rob_var": 1.8732285725061764,
+      "rob_max": -3.821459879137097
+    },
+    {
+      "peak_idx": 5,
+      "sigma_peak": [
+        1.5,
+        1.5,
+        1.5,
+        1.5,
+        1.5
+      ],
+      "gt_robust": 1.5,
+      "is_robust": true,
+      "f_center": -10.0,
+      "rob_mean": -9.965940315953546,
+      "rob_var": 0.00018590448295230066,
+      "rob_max": -9.933789262067856
+    }
+  ]
+}
