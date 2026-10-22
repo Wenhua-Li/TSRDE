@@ -1,9 +1,10 @@
 # TSRDE: Two-Stage Robust Differential Evolution for Multimodal Optimization
 
-Official implementation for the paper:
+Reference implementation for the paper:
 
-> **Two-Stage Robust Differential Evolution for Multimodal Optimization**  
-> *IEEE Transactions on Evolutionary Computation (under review)*
+> **Two-Stage Robust Differential Evolution for Multimodal Optimization** (under review at *IEEE Transactions on Cybernetics*)
+>
+> The extended version of the paper (12-page main text + appendix with full derivations, per-problem tables, and additional figures) is [`TSRDE_extended_version.pdf`](TSRDE_extended_version.pdf).
 
 ## Overview
 
@@ -14,8 +15,8 @@ Standard multimodal optimization algorithms locate all peaks without distinguish
 2. **RobF1** — an F1-style metric that simultaneously penalizes redundant recommendations and missed robust peaks, yielding a single scalar score for robust solution discovery.
 
 3. **TSRDE** — Two-Stage Robust Differential Evolution that decouples global multimodal exploration from robust refinement:
-   - **Phase 1**: k-NN rival crowding DE with archive-guided restart — efficient multi-peak coverage with zero robustness evaluation cost.
-   - **Phase 2**: Competitive elimination and deep refinement — selects the `n_sol` most robust and spatially diverse solutions.
+   - **Phase 1**: k-NN rival crowding DE with random restarts — efficient multi-peak coverage with zero robustness evaluation cost.
+   - **Phase 2**: Coarse robustness screening, competition-elimination loop, and deep refinement — selects the `n_sol` most robust and spatially diverse solutions.
 
 A key theoretical contribution is the dimension-adaptive sampling count **M\*(D)**, derived from a quadratic peak model, which guarantees statistically reliable robustness estimation at all dimensions.
 
@@ -69,6 +70,13 @@ solutions = algo._run(problem)
 ├── .gitignore
 ├── LICENSE
 ├── quick_example.py         # Runnable quick-start script
+├── TSRDE_extended_version.pdf  # Extended version of the paper (main text + appendix)
+├── results/                    # Per-problem result tables and offline audits (Markdown)
+│   ├── robbench_per_problem.md
+│   ├── cec2026_per_problem.md
+│   ├── ablation.md
+│   ├── nsol_sensitivity.md
+│   └── audits.md
 └── src/
     ├── tsrde.py             # Main TSRDE algorithm
     ├── evri_utils.py        # Robustness measure E[f(x+δ)] + M*(D) theory
@@ -132,13 +140,13 @@ Derived from a quadratic peak model, ensuring reliable variance estimation for a
 
 | Group | Stress Factor | Problems |
 |-------|---------------|----------|
-| A | Dimensionality (D = 2, 5, 10, 20) | rb_a1–rb_a4 |
-| B | Robustness ratio (10%–75% robust peaks) | rb_b1–rb_b4 |
-| C | Peak count (4, 8, 16, 32 peaks) | rb_c1–rb_c4 |
+| A | Dimensionality (D = 2, 3, 5, 10) | rb_a1–rb_a4 |
+| B | Robustness ratio (25%–75% robust peaks) | rb_b1–rb_b4 |
+| C | Peak count (2–8 peaks) | rb_c1–rb_c4 |
 | D | Anisotropy (axis-aligned vs. rotated narrow dims) | rb_d1–rb_d4 |
 | E | Spatial trap (robust peak in low-density region) | rb_e1–rb_e4 |
 
-All peaks are equal in objective value; robustness is determined solely by basin width. Ground-truth robust peaks and their exact robustness values are analytically known.
+In total: 20 problems, 100 peaks, 41 robust peaks. All peaks are equal in objective value; robustness is determined solely by basin width. Ground-truth robust peaks and their exact robustness values are analytically known.
 
 ---
 
@@ -156,6 +164,22 @@ A solution is credited to a robust peak if it falls within the niche radius and 
 
 ---
 
+## Results
+
+Per-problem results and post-hoc audits accompanying the paper, all recomputed from the frozen experimental data:
+
+| File | Contents |
+|------|----------|
+| [`results/robbench_per_problem.md`](results/robbench_per_problem.md) | RobF1 (mean ± std, 10 runs) on all 20 RobBench problems, nine algorithms |
+| [`results/cec2026_per_problem.md`](results/cec2026_per_problem.md) | CEC2026 competition score on all 16 problems at D = 2/5/10/20 |
+| [`results/ablation.md`](results/ablation.md) | Group-level RobF1 for full TSRDE and three ablated variants |
+| [`results/nsol_sensitivity.md`](results/nsol_sensitivity.md) | RobF1 vs. `n_sol` sweep (1,400 runs) and the Δn tolerance curve |
+| [`results/audits.md`](results/audits.md) | Near-optimality audit, robustness-ordering consistency, sample-count sensitivity |
+
+Headline numbers: overall RobF1 **0.952** on RobBench (best of nine algorithms, 19 of 20 problems; Wilcoxon signed-rank with Bonferroni correction, p < 1e-5) and overall score **0.550** on CEC2026 (next-best baseline 0.302).
+
+---
+
 ## Citation
 
 If you use this code or data in your research, please cite:
@@ -163,10 +187,9 @@ If you use this code or data in your research, please cite:
 ```bibtex
 @article{tsrde2026,
   title   = {Two-Stage Robust Differential Evolution for Multimodal Optimization},
-  author  = {[Authors]},
-  journal = {IEEE Transactions on Evolutionary Computation},
+  author  = {Yao, Xingyi and Li, Wenhua and Wang, Rui and Zhang, Tao and Lu, Xin},
   year    = {2026},
-  note    = {Under review}
+  note    = {Manuscript under review (IEEE Transactions on Cybernetics)}
 }
 ```
 
